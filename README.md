@@ -1,1 +1,1 @@
-# 3EAI_25-26_Project-embedded
+# 2025-2026 Project-embedded
