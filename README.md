@@ -41,8 +41,8 @@ Daarbij kwamen enkele uitdagingen naar voren:
 Om deze problemen aan te pakken, werken we met een nieuwe combinatie van componenten:  
 - **S2 Mini** (ESP32-S2 microcontroller met Wi-Fi).  
 - **PowerBoost 500 Charger** (voor batterijvoeding en opladen).  
-- **SHT30 sensor** (voor temperatuur- en luchtvochtigheidsmetingen).  
-
+- **SHT30 sensor** (voor temperatuur- en luchtvochtigheidsmetingen).
+[Docs/Research.md – Bat Detectie project](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Research.md)
 Deze set-up maakt het mogelijk om betrouwbare metingen te doen in spouwmuren en data draadloos door te sturen.  
 
 ---
