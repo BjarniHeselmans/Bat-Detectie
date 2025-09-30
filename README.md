@@ -70,7 +70,7 @@ Om deze problemen aan te pakken, werken we met een nieuwe combinatie van compone
 ## Documentatie
 - **Application Note:** Wordt toegevoegd in `/docs`.  
 - **GitHub README:** [Dit document](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/README.md) met projectdoelen en hardwareoverzicht.  
-- **Code:** Wordt beheerd en gereviseerd via GitHub.  
+- **Code:** Wordt toegevoegd in [/Src](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Src/ESPCode.c).  
 
 ---
 
