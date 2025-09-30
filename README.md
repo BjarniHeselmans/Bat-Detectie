@@ -36,7 +36,7 @@ Daarbij kwamen enkele uitdagingen naar voren:
 
 ---
 
-## Nieuwe hardwareoplossing
+## Hardwareoplossing
 Om deze problemen aan te pakken, werken we met een nieuwe combinatie van componenten:  
 - **S2 Mini** (ESP32-S2 microcontroller met Wi-Fi).  
 - **PowerBoost 500 Charger** (voor batterijvoeding en opladen).  
