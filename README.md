@@ -39,9 +39,9 @@ Daarbij kwamen enkele uitdagingen naar voren:
 
 ## Hardwareoplossing
 Om deze problemen aan te pakken, werken we met een nieuwe combinatie van componenten:  
-- **S2 Mini** (ESP32-S2 microcontroller met Wi-Fi).  
-- **PowerBoost 500 Charger** (voor batterijvoeding en opladen).  
-- **SHT30 sensor** (voor temperatuur- en luchtvochtigheidsmetingen).
+- **[S2 Mini](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/esp32-s2-mini.jpg)** (ESP32-S2 microcontroller met Wi-Fi).  
+- **[PowerBoost 500 Charger](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Power-Boost-5000.jpg)** (voor batterijvoeding en opladen).  
+- **[SHT30 sensor](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/SHT30.jpg)** (voor temperatuur- en luchtvochtigheidsmetingen).
 - [Deze set-up](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Research.md)
  maakt het mogelijk om betrouwbare metingen te doen in spouwmuren en data draadloos door te sturen.  
 
