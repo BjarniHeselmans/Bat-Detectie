@@ -71,8 +71,3 @@ Om deze problemen aan te pakken, werken we met een nieuwe combinatie van compone
 - **Application Note:** Wordt toegevoegd in [/docs](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/AN_Bjarni-Emiel.md).  
 - **GitHub README:** [Dit document](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/README.md) met projectdoelen en hardwareoverzicht.  
 - **Code:** Wordt toegevoegd in [/Src](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Src/ESPCode.c).  
-
----
-
-## Licentie
-Dit project wordt uitgebracht onder de [MIT-licentie](LICENSE).  
