@@ -2,15 +2,14 @@
 
 ## Introductie
 Dit project onderzoekt hoe vleermuizen spouwmuren gebruiken als leef- en verplaatsingsruimte.  
-Met behulp van sensormodules, warmtecamera’s en akoestische detectie brengen we in kaart welke factoren (zoals breedte, hoogte en openingen) hun beweging beïnvloeden.  
-
+We ontwikkelen sensormodules die temperatuur, luchtvochtigheid en beweging kunnen registreren.  
 Het doel is om zowel **ecologische inzichten** te verkrijgen voor de bescherming van vleermuissoorten als **bouwkundige richtlijnen** te ontwikkelen voor renovatie en isolatie.
 
 ---
 
 ## Doel van het onderzoek
 - In kaart brengen hoe vleermuizen spouwmuren benutten.  
-- Begrijpen welke bouwkundige factoren hun beweging sturen.  
+- Begrijpen welke bouwkundige factoren (breedte, hoogte, openingen) hun beweging beïnvloeden.  
 
 ---
 
@@ -24,36 +23,32 @@ Het doel is om zowel **ecologische inzichten** te verkrijgen voor de bescherming
 Het onderzoek wordt uitgevoerd met behulp van:  
 - Observaties met warmtecamera’s.  
 - Akoestische detectie.  
-- Proof-of-Concept (POC) sensormodules.  
+- Ontwikkeling van compacte, draagbare sensormodules.  
 
 ---
 
 ## Terugblik vorig jaar
-Tijdens de vorige projectfase werden de eerste sensormodules ontwikkeld.  
-Belangrijkste uitdagingen:  
+In een eerdere projectfase zijn de eerste sensormodules gebouwd.  
+Daarbij kwamen enkele uitdagingen naar voren:  
 - Beperkte batterijduur.  
 - Problemen door vocht en condensatie.  
 - Beperkingen in draadloze communicatie.  
 
 ---
 
-## Hardwaredoelen
-In de huidige fase streven we naar het bouwen en verbeteren van:  
+## Nieuwe hardwareoplossing
+Om deze problemen aan te pakken, werken we met een nieuwe combinatie van componenten:  
+- **S2 Mini** (ESP32-S2 microcontroller met Wi-Fi).  
+- **PowerBoost 500 Charger** (voor batterijvoeding en opladen).  
+- **SHT30 sensor** (voor temperatuur- en luchtvochtigheidsmetingen).  
 
-- **Algemene modules**  
-- **Pippyg**  
-- **Audio recorder**  
-- **ESP32**  
-  - Sensoren: temperatuur, luchtvochtigheid en luchtdruk  
-- **Raspberry Pi Pico**  
-  - IR-camera  
-- **Wireless data-opslag** (waar mogelijk)  
+Deze set-up maakt het mogelijk om betrouwbare metingen te doen in spouwmuren en data draadloos door te sturen.  
 
 ---
 
 ## Doelstellingen
 ### Must-haves
-- Ontwikkelen en opleveren van hardware.  
+- Ontwikkelen en opleveren van de hardwaremodule.  
 - Documenteren in een Application Note.  
 - Documenteren in deze GitHub README (Markdown).  
 - Code review en versiebeheer via GitHub.  
@@ -63,9 +58,20 @@ In de huidige fase streven we naar het bouwen en verbeteren van:
 
 ---
 
-## Installatie en gebruik
-*(Voorlopig voorbeeld, verder uit te werken tijdens project)*  
+## Toepassingen
+- Onderzoek naar vleermuizen in spouwmuren.  
+- Algemeen draagbare IoT-projecten.  
+- Sensoren en datalogging.  
+- Omgevingsmonitoring (temperatuur en luchtvochtigheid).  
 
-1. Clone deze repository:  
-   ```bash
-   git clone https://github.com/<organisatie>/<projectnaam>.git
+---
+
+## Documentatie
+- **Application Note:** Wordt toegevoegd in `/docs`.  
+- **GitHub README:** Dit document met projectdoelen en hardwareoverzicht.  
+- **Code:** Wordt beheerd en gereviseerd via GitHub.  
+
+---
+
+## Licentie
+Dit project wordt uitgebracht onder de [MIT-licentie](LICENSE).  
