@@ -1,70 +1,119 @@
-# Onderzoeksproject: Vleermuizen en Spouwmuren
+# Vleermuizen en Spouwmuren – ESPHome Sensor Node
 
-Dit project beschrijft een embedded sensormodule voor het monitoren van
-vleermuisactiviteit en omgevingscondities in spouwmuren, opgebouwd rond een
-ESP32-S2 (S2 Mini), een SHT30 temperatuurs- en vochtigheidssensor en een
-batterijvoedingsmodule met draadloze datadoorsturing via ESPHome.
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/ProjectPicture.png" />
 
----
+## 1. Inleiding — Waarom bestaat dit project?
 
-## Inleiding
+Dit project maakt deel uit van het BatSense-onderzoek rond vleermuizen en spouwmuren binnen de opleiding Elektronica-ICT aan Hogeschool PXL.  
+Vleermuizen maken gebruik van spouwmuren als leef- en verplaatsingsruimte. Om dat gebruik beter te begrijpen, is betrouwbare monitoring van de omgevingscondities (zoals temperatuur en luchtvochtigheid) in die spouwmuren nodig.
 
-Dit project kadert binnen de opleiding Elektronica-ICT aan Hogeschool PXL en
-sluit aan bij een breder onderzoeksopzet rond monitoring, IoT en ecologie.  
-De sensormodules worden ingezet om het gebruik van spouwmuren door vleermuizen
-te bestuderen aan de hand van omgevingsmetingen en beweging, met als doel
-zowel **ecologische inzichten** als **praktische richtlijnen** voor
-bouwkundige toepassingen te verzamelen.
+Binnen het grotere BatSenseEmbedded-project werken meerdere deelteams samen aan een modulair systeem met verschillende nodes en een centrale verwerking.  
+Deze repository focust op één specifieke node: een compacte, batterijgevoede sensormodule op basis van een ESP32-S2 (S2 Mini) en ESPHome, die via Wi‑Fi meetdata uit de spouwmuur doorstuurt naar het centrale systeem.
 
 ---
 
-## Doelstelling
+## 2. Doelstelling — Wat moest er op het einde werken?
 
-Het doel is om een compacte, draagbare hardwaremodule te ontwikkelen die
-temperatuur en luchtvochtigheid in spouwmuren betrouwbaar meet en de gegevens
-draadloos doorstuurt naar een overkoepelend systeem.  
+Het doel van dit deelproject is een werkende, reproduceerbare sensor node op te leveren die:
 
-De module moet:
-- autonoom op batterij kunnen werken;
-- reproduceerbaar zijn op basis van de documentatie;
-- via ESPHome alle sensoren koppelen en de meetdata via Wi‑Fi doorsturen;
-- meetdata beschikbaar maken in een hoger niveau platform
-  (zoals Home Assistant of een dataloggingomgeving).
+- temperatuur en relatieve luchtvochtigheid in een spouwmuur kan meten met een SHT30/SHT3X-sensor;
+- autonoom op batterij kan functioneren, met deep-sleep om energie te besparen;
+- via ESPHome elke sensor logisch aan de ESP32-S2 koppelt;
+- de gemeten waarden via Wi‑Fi doorstuurt naar een centraal systeem (bv. Home Assistant of een backend uit BatSenseEmbedded);
+- voldoende gedocumenteerd is (hardware + firmware) zodat een andere student de node opnieuw kan bouwen en integreren in het BatSense-systeem.
 
----
-
-## Materialen en Methoden
-
-### Hardware
-
-De hardware bestaat uit:
-- S2 Mini (ESP32-S2 met Wi‑Fi);
-- PowerBoost 500 Charger voor batterijvoeding en laadfunctie;
-- SHT30/SHT3X sensor voor temperatuur- en vochtigheidsmeting.
-
-De bekabeling en opstelling zijn beschreven in `Docs/Research.md`.
-
-### Firmware en datadoorsturing
-
-De firmware wordt gerealiseerd met **ESPHome** op basis van:
-- `Scripts/HTSensor.yaml`
-
-ESPHome wordt gebruikt als centrale laag om alle sensoren aan de ESP32-S2 te
-koppelen en de ruwe meetwaarden te vertalen naar entiteiten die via Wi‑Fi
-beschikbaar zijn op het netwerk.  
-In de ESPHome-configuratie worden de sensoren (zoals de SHT3X) gedefinieerd,
-worden meetintervallen ingesteld, wordt deep‑sleep geconfigureerd voor
-energiebesparing en wordt gespecificeerd naar welke host (bijvoorbeeld
-Home Assistant) de data wordt doorgestuurd.  
-
-Samengevat:
-- ESPHome koppelt elke sensor logisch aan de microcontroller;
-- de ESP32-S2 stuurt de meetdata via Wi‑Fi naar het netwerk;
-- een extern systeem kan de data vervolgens loggen, verwerken en visualiseren.
+De node moet aantoonbaar meetdata leveren die in het centrale systeem zichtbaar en logbaar is.
 
 ---
 
-## Projectstructuur
+## 3. Materialen & Methoden — Hoe is het gebouwd?
+
+### 3.1 Hardware
+
+De sensor node bestaat uit:
+
+- **Microcontroller:**  
+  ESP32-S2 Mini (S2 Mini) met geïntegreerde Wi‑Fi.
+- **Sensor:**  
+  SHT30/SHT3X voor temperatuur- en relatieve luchtvochtigheid (I²C-communicatie).
+- **Voeding:**  
+  PowerBoost 500 Charger voor batterijvoeding en laadfunctionaliteit.
+- **Overige:**  
+  Bekabeling, connectoren en een behuizing/opstelling geschikt voor plaatsing in een spouwmuur.
+
+De bekabeling, pinout en fysieke opstelling worden beschreven in de documenten in `Docs/`:
+- `Research.md` – hardwareopzet en keuzes
+- `01_board_controle.md` – basiscontroles van de S2 Mini
+- `02_sensor_kabels.md` – sensorbekabeling en aanpassingen
+- `03_s2mini_flashen.md` – stappen om de S2 Mini te flashen met ESPHome
+
+### 3.2 Firmware & Software (ESPHome)
+
+De volledige firmware wordt opgebouwd met **ESPHome**.  
+Belangrijkste elementen:
+
+- **Configuratiebestand:**  
+  `Scripts/HTSensor.yaml`
+- **Sensorconfiguratie:**  
+  Declaratie van de SHT3X-sensor via I²C, inclusief meetfrequentie.
+- **Energiebeheer:**  
+  Deep-sleep-configuratie om de node slechts periodiek te laten meten en verzenden.
+- **Wi‑Fi:**  
+  In `HTSensor.yaml` worden SSID en wachtwoord ingesteld zodat de node verbinding maakt met het gewenste netwerk.
+- **Datadoorsturing:**  
+  ESPHome maakt de sensorwaarden als entiteiten beschikbaar op het netwerk.  
+  Deze kunnen door een centrale component (bv. Home Assistant of een server gedefinieerd in BatSenseEmbedded) worden ingelezen en gelogd.
+
+### 3.3 Architectuur en datastroom
+
+De datastroom voor deze node verloopt als volgt:
+
+1. De node wordt gevoed door de batterij via de PowerBoost 500 Charger.
+2. De ESP32-S2 wordt wakker uit deep-sleep.
+3. ESPHome leest de SHT30/SHT3X-sensor uit via I²C (temperatuur en luchtvochtigheid).
+4. De ESP32-S2 maakt verbinding met het Wi‑Fi-netwerk.
+5. ESPHome stuurt de gemeten waarden via Wi‑Fi naar het centrale systeem (bv. Home Assistant of een server binnen BatSenseEmbedded).
+6. Het centrale systeem logt en visualiseert de data, zodat deze kan worden gekoppeld aan het bredere vleermuisonderzoek.
+
+Deze node is daarmee één van de sensoren in het grotere BatSenseEmbedded-ecosysteem, waar meerdere nodes en servers samenkomen.
+
+---
+
+## 4. Resultaten — Wat werkt effectief?
+
+De volgende resultaten werden bereikt met deze sensor node:
+
+- **Werkende hardwaremodule:**  
+  De combinatie van S2 Mini, PowerBoost 500 Charger en SHT30/SHT3X levert een stabiel systeem op dat in een spouwmuur kan geplaatst worden.
+- **Stabiele omgevingsmetingen:**  
+  Temperatuur- en vochtigheidswaarden worden betrouwbaar uitgelezen via ESPHome.
+- **Wi‑Fi-communicatie:**  
+  De node maakt verbinding met het geconfigureerde Wi‑Fi-netwerk en publiceert de sensorwaarden als entiteiten.
+- **Integratie met centraal systeem:**  
+  De data kan worden ingelezen en gelogd door een hoger niveau platform (bijvoorbeeld Home Assistant of een centrale server binnen BatSenseEmbedded).
+
+Het aantal werkende modules, testduur en stabiliteitstesten hangen af van de concrete metingen en opstellingen die in de loop van het project zijn uitgevoerd. Deze kunnen aangevuld worden met grafieken, logs en screenshots in de documentatie en in de centrale projectrapportage.
+
+---
+
+## 5. Besluit — Wat hebben we geleerd?
+
+Uit dit deelproject rond de ESPHome sensor node kwamen de volgende inzichten naar voren:
+
+- **Energiebeheer is cruciaal:**  
+  Deep-sleep en meetinterval hebben een grote impact op de batterijduur. Het juist instellen hiervan is essentieel voor langdurige metingen in spouwmuren.
+- **Omgevingsinvloeden:**  
+  Vocht en condensatie vormen een risico voor de hardware. Het ontwerp van de behuizing en de plaatsing van de sensor zijn belangrijk voor de betrouwbaarheid.
+- **Wi‑Fi-bereik en stabiliteit:**  
+  In of rond een spouwmuur is het Wi‑Fi-signaal niet altijd optimaal. Dit moet meegenomen worden in de plaatsing van nodes en de keuze van access points.
+- **Modulariteit binnen BatSenseEmbedded:**  
+  Door ESPHome te gebruiken en de node duidelijk te documenteren, kan deze sensor eenvoudig geïntegreerd worden in de centrale BatSenseEmbedded-architectuur en door andere studenten worden nagebouwd of uitgebreid.
+
+Deze node levert zo een concrete, technische bouwsteen voor het bredere vleermuis- en spouwmurenonderzoek, en illustreert hoe een robuuste, batterijgevoede IoT-sensorknoop ontworpen en gedocumenteerd kan worden.
+
+---
+
+## Projectstructuur (overzicht)
 
 Docs/
 Research.md
@@ -77,59 +126,7 @@ Attachments/
 Scripts/
 HTSensor.yaml
 
+text
 
-- `Docs/` bevat alle documentatie rond hardware, tests en opbouw.  
-- `Scripts/` bevat de ESPHome-configuratiebestanden waarmee de sensoren worden
-  gekoppeld en de datadoorsturing via Wi‑Fi wordt geregeld.
-
----
-
-## Installatie en Gebruik
-
-1. **Hardware opzetten**  
-   Volg `Docs/Research.md` voor het aansluiten van:
-   - S2 Mini  
-   - PowerBoost  
-   - SHT30/SHT3X sensor
-
-2. **ESPHome configureren en firmware flashen**  
-   - Installeer ESPHome op je systeem.  
-   - Plaats `HTSensor.yaml` in je ESPHome-projectmap.  
-   - Flash de firmware naar de S2 Mini:
-     ```
-     esphome run HTSensor.yaml
-     ```
-   In deze configuratie worden alle sensoren gekoppeld en wordt Wi‑Fi ingesteld
-   zodat de module verbinding maakt met je netwerk.
-
-3. **Testen en logs bekijken**  
-
-esphome logs HTSensor.yaml
-
-Hiermee kun je in realtime de sensorwaarden bekijken en controleren:
-- of de SHT30/SHT3X correct uitgelezen wordt;
-- of de Wi‑Fi-verbinding tot stand komt;
-- of de entiteiten zichtbaar zijn in het gekoppelde systeem
-  (bijvoorbeeld Home Assistant).
-
----
-
-## Resultaten
-
-Met de opgeleverde module kan in spouwmuren een stabiele meting van temperatuur
-en luchtvochtigheid uitgevoerd worden, waarbij ESPHome alle sensoren beheert en
-de data via Wi‑Fi beschikbaar maakt als entiteiten in het netwerk.  
-De combinatie van documentatie in `Docs/` en configuratie in `Scripts/`
-maakt het mogelijk om de opstelling te reproduceren, het gedrag van de module
-te testen en de meetresultaten te koppelen aan het bredere vleermuisonderzoek.
-
----
-
-## Conclusie
-
-De combinatie van S2 Mini, PowerBoost, SHT30 en ESPHome levert een praktische
-embedded oplossing voor omgevingsmonitoring in spouwmuren, met een duidelijke
-scheiding tussen hardware, firmwareconfiguratie en documentatie.  
-ESPHome vereenvoudigt het koppelen van sensoren en de Wi‑Fi‑datadoorsturing,
-waardoor de focus kan liggen op metingen, analyse en de ecologische en
-bouwkundige relevantie van het project.
+- `Docs/` bevat alle documentatie rond hardware, tests en opbouw.
+- `Scripts/` bevat de ESPHome-configuratie waarmee de sensoren gekoppeld en via Wi‑Fi doorgestuurd worden.
