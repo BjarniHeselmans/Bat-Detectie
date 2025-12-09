@@ -4,34 +4,31 @@
 
 Firstly be sure to check if all the required parts are found like in the image below. You should have 2 tiny screws for the ESP32, the 3D print to hold the parts, the lithium battery holder+battery management system+ESP32, another set of screws for the bms and finally the 4 big ones to screw in the lid to the enclosure.
 
-![Step1](/Attachments/Step1.jpg) 
-
-
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step1.jpg" />
 
 ## Step 2
 
 Now that you have confirmed that all components are included be sure to safely insert the battery holder inside of the 3D printed screwholder since it will be easier to mount it inside of the enclose this way.
 
-![Step2](/Attachments/Step2.jpg)
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step2.jpg" />
 
 ## Step 3
 
 After that is done the screwholder can be safely slotted in making sure that the curved side is aimed to the top and that it looks like the image below. Then you can use the 4 tiny included screws to screw in the esp and the BMS system into the enclosure.
 
-![Step3](/Attachments/Step3.jpg)
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step3.jpg" />
 
 ## Step 4
 
 Next the battery can be slotted into the enclosure making sure that the polarity is correct. This can be checked by aligning the + and minus sign as shown in the image below.
-![Step4](/Attachments/Step4.png)
+
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step4.jpg" />
 
 # Step 5
 
 Now that everything for inside the case is installed the lid can be placed on top and screwed in with the biggest 4 screws the sensor kit is now fully assembled!
 
-![Step5](/Attachments/Step5.jpg)
-
-
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step5.jpg" />
 
 # Final note
 
