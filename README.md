@@ -1,100 +1,117 @@
 # Onderzoeksproject: Vleermuizen en Spouwmuren
-<img width="2480" height="1642" alt="image" src="https://github.com/user-attachments/assets/67e67353-f503-4871-95e1-b014d2f404eb" />
 
-## Introductie
-Dit project onderzoekt hoe vleermuizen spouwmuren gebruiken als leef- en verplaatsingsruimte.  
-We ontwikkelen sensormodules die temperatuur, luchtvochtigheid en beweging kunnen registreren.  
-Het doel is om zowel **ecologische inzichten** te verkrijgen voor de bescherming van vleermuissoorten als **bouwkundige richtlijnen** te ontwikkelen voor renovatie en isolatie.
-
----
-
-## Doel van het onderzoek
-- In kaart brengen hoe vleermuizen spouwmuren benutten.  
-- Begrijpen welke bouwkundige factoren (breedte, hoogte, openingen) hun beweging beïnvloeden.  
+Dit project beschrijft een embedded sensormodule voor het monitoren van
+vleermuisactiviteit en omgevingscondities in spouwmuren, opgebouwd rond een
+ESP32-S2 (S2 Mini), een SHT30 temperatuurs- en vochtigheidssensor en een
+batterijvoedingsmodule met draadloze datadoorsturing via ESPHome.
 
 ---
 
-## Belang van het onderzoek
-- **Ecologisch:** Bescherming van vleermuissoorten door beter inzicht in hun gedrag.  
-- **Bouwkundig:** Bieden van richtlijnen om diervriendelijke renovatie en isolatie te ondersteunen.  
+## Inleiding
+
+Dit project kadert binnen de opleiding Elektronica-ICT aan Hogeschool PXL en
+sluit aan bij een breder onderzoeksopzet rond monitoring, IoT en ecologie.  
+De sensormodules worden ingezet om het gebruik van spouwmuren door vleermuizen
+te bestuderen aan de hand van omgevingsmetingen en beweging, met als doel
+zowel **ecologische inzichten** als **praktische richtlijnen** voor
+bouwkundige toepassingen te verzamelen.
 
 ---
 
-## Aanpak
-Het onderzoek wordt uitgevoerd met behulp van:  
-- Observaties met warmtecamera’s.  
-- Akoestische detectie.  
-- Ontwikkeling van compacte, draagbare sensormodules.  
+## Doelstelling
+
+Het doel is om een compacte, draagbare hardwaremodule te ontwikkelen die
+temperatuur en luchtvochtigheid in spouwmuren betrouwbaar meet en de gegevens
+draadloos doorstuurt naar een overkoepelend systeem.
+
+De module moet:
+- autonoom op batterij kunnen werken;
+- reproduceerbaar zijn op basis van de documentatie;
+- via de ESPHome-configuratie aantoonbaar meetdata leveren die in een hoger
+  niveau platform (zoals Home Assistant of een dataloggingomgeving) kan
+  worden gebruikt.
 
 ---
 
-## Terugblik vorig jaar
-In een eerdere projectfase zijn de eerste sensormodules gebouwd.  
-Daarbij kwamen enkele uitdagingen naar voren:  
-- Beperkte batterijduur.  
-- Problemen door vocht en condensatie.  
-- Beperkingen in draadloze communicatie.  
+## Materialen en Methoden
 
----
+De hardware bestaat uit:
+- S2 Mini (ESP32-S2 met Wi‑Fi);
+- PowerBoost 500 Charger voor batterijvoeding en laadfunctie;
+- SHT30/SHT3X sensor voor temperatuur- en vochtigheidsmeting.
 
-## Hardwareoplossing
-Om deze problemen aan te pakken, werken we met een nieuwe combinatie van componenten:  
-- **[S2 Mini](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/esp32-s2-mini.jpg)** (ESP32-S2 microcontroller met Wi-Fi).  
-- **[PowerBoost 500 Charger](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Power-Boost-5000.jpg)** (voor batterijvoeding en opladen).  
-- **[SHT30 sensor](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/SHT30.jpg)** (voor temperatuur- en luchtvochtigheidsmetingen).
-- [Deze set-up](https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Research.md)
- maakt het mogelijk om betrouwbare metingen te doen in spouwmuren en data draadloos door te sturen.  
+De bekabeling en opstelling zijn beschreven in `Docs/Research.md`.
 
----
+De firmware wordt gerealiseerd met **ESPHome** op basis van:
+- `Scripts/HTSensor.yaml`
 
-## Doelstellingen
-### Must-haves
-- Ontwikkelen en opleveren van de hardwaremodule.  
-- Documenteren in een Application Note.  
-- Documenteren in deze GitHub README (Markdown).  
-- Code review en versiebeheer via GitHub.  
-
-### Nice-to-have
-- Ontwerp en productie van een PCB.  
-
----
-
-## Toepassingen
-- Onderzoek naar vleermuizen in spouwmuren.  
-- Algemeen draagbare IoT-projecten.  
-- Sensoren en datalogging.  
-- Omgevingsmonitoring (temperatuur en luchtvochtigheid).  
+Hiermee:
+- leest de ESP32-S2 de SHT3X via I²C uit;
+- wordt deep-sleep gebruikt om batterij te sparen;
+- worden gemeten waarden periodiek via Wi‑Fi verstuurd.
 
 ---
 
 ## Projectstructuur
 
-De projectbestanden zijn georganiseerd in twee hoofdmappen:
+Docs/
+Research.md
+01_board_controle.md
+02_sensor_kabels.md
+03_s2mini_flashen.md
+Attachments/
+... (screenshots en foto’s)
 
-### 1. `Docs/`
-Bevat alle documentatie met betrekking tot het project, inclusief:
-- Hardwareonderzoek (`Research.md`)
-- Boardtests (`01_board_controle.md`)
-- Sensorbekabeling en aanpassingen (`02_sensor_kabels.md`)
-- Flashen en configuratie van de S2 Mini met ESPHome (`03_s2mini_flashen.md`)
+Scripts/
+HTSensor.yaml
 
-**Bijlagen:** screenshots en foto’s van de hardware in `Docs/Attachments/`.
 
-### 2. `Scripts/`
-Bevat de configuratiebestanden en scripts voor de sensoren:
-- `HTSensor.yaml` – YAML-configuratie voor ESPHome waarmee de S2 Mini de SHT3X-sensor kan uitlezen, deep-sleep gebruiken en data via Wi-Fi verzenden.
+- `Docs/` bevat alle documentatie rond hardware, tests en opbouw.  
+- `Scripts/` bevat de ESPHome-configuratiebestanden.
+
+---
+
+## Installatie en Gebruik
+
+1. **Hardware opzetten**  
+   Volg `Docs/Research.md` voor het aansluiten van:
+   - S2 Mini  
+   - PowerBoost  
+   - SHT30/SHT3X sensor
+
+2. **Firmware flashen**  
+   Gebruik ESPHome met het YAML-bestand in `Scripts/`:
+   esphome run HTSensor.yaml
+
+3. **Testen en logs bekijken**  
+   esphome logs HTSensor.yaml
+
+Bekijk hiermee in realtime de sensorwaarden en controleer de communicatie.
 
 ---
 
-## Installatie en gebruik
+## Resultaten
 
-1. **Hardware opzetten:**  
-   - Volg de instructies in `Docs/Research.md` voor het aansluiten van de S2 Mini, PowerBoost en SHT30/SHT3X sensor.
+Met de opgeleverde module kan in spouwmuren een stabiele meting van temperatuur
+en luchtvochtigheid uitgevoerd worden, waarbij de sensordata via ESPHome
+beschikbaar komt als entiteiten die door een extern systeem gelogd en
+gevisualiseerd kunnen worden.
 
-2. **Firmware flashen:**  
-   - Gebruik de YAML-bestanden uit `Scripts/` in combinatie met ESPHome (`esphome run.\ HTSensor.yaml`) om de S2 Mini te programmeren.
-
-3. **Testen en logs bekijken:**  
-   - Via `esphome logs HTSensor.yaml` kun je realtime sensorwaarden bekijken en controleren of de communicatie werkt.
+De combinatie van documentatie in `Docs/` en configuratie in `Scripts/`
+maakt het mogelijk om:
+- de opstelling te reproduceren;
+- het gedrag van de module te testen;
+- de meetresultaten te koppelen aan het bredere vleermuisonderzoek.
 
 ---
+
+## Conclusie
+
+De combinatie van S2 Mini, PowerBoost en SHT30 levert een praktische embedded
+oplossing voor omgevingsmonitoring in spouwmuren, met een duidelijke scheiding
+tussen hardwaredocumentatie en firmwareconfiguratie in de repository.
+
+Tijdens het project komen typische embedded-uitdagingen zoals energiebeheer,
+omgevingsinvloeden (vocht) en draadloze connectiviteit expliciet in beeld.
+Dit biedt waardevolle leerervaringen voor het ontwerpen van robuuste
+IoT-sensorknopen in realistische toepassingen.
