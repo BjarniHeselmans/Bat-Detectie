@@ -16,7 +16,7 @@ Now that you have confirmed that all components are included be sure to safely i
 
 After that is done the screwholder can be safely slotted in making sure that the curved side is aimed to the top and that it looks like the image below. Then you can use the 4 tiny included screws to screw in the esp and the BMS system into the enclosure.
 
-<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step3.jpg" />
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/step3.jpg" />
 
 ## Step 4
 
