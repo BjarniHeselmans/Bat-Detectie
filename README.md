@@ -41,11 +41,11 @@ De sensor node bestaat uit:
 - **Overige:**  
   Bekabeling, connectoren en een behuizing/opstelling geschikt voor plaatsing in een spouwmuur.
 
-De bekabeling, pinout en fysieke opstelling worden beschreven in de documenten in `Docs/`:
-- `Research.md` – hardwareopzet en keuzes
-- `01_board_controle.md` – basiscontroles van de S2 Mini
-- `02_sensor_kabels.md` – sensorbekabeling en aanpassingen
-- `03_s2mini_flashen.md` – stappen om de S2 Mini te flashen met ESPHome
+De bekabeling, pinout en fysieke opstelling worden beschreven in de documenten in **[Docs/](./Docs/)**:
+- **[Research.md](./Docs/Research.md)** – hardwareopzet en keuzes
+- **[board_controle.md](./Docs/Board_controle.md)** – basiscontroles van de S2 Mini
+- **[sensor_kabels.md](./Docs/SensorKabels.md)** – sensorbekabeling en aanpassingen
+- **[s2mini_flashen.md](./Docs/S2mini_flashen.md)** – stappen om de S2 Mini te flashen met ESPHome
 
 ### 3.2 Firmware & Software (ESPHome)
 
@@ -53,13 +53,13 @@ De volledige firmware wordt opgebouwd met **ESPHome**.
 Belangrijkste elementen:
 
 - **Configuratiebestand:**  
-  `Scripts/HTSensor.yaml`
+  [Scripts/base.yaml](./Scripts/base.yaml)
 - **Sensorconfiguratie:**  
   Declaratie van de SHT3X-sensor via I²C, inclusief meetfrequentie.
 - **Energiebeheer:**  
   Deep-sleep-configuratie om de node slechts periodiek te laten meten en verzenden.
 - **Wi‑Fi:**  
-  In `HTSensor.yaml` worden SSID en wachtwoord ingesteld zodat de node verbinding maakt met het gewenste netwerk.
+  In `base.yaml` worden SSID en wachtwoord ingesteld zodat de node verbinding maakt met het gewenste netwerk.
 - **Datadoorsturing:**  
   ESPHome maakt de sensorwaarden als entiteiten beschikbaar op het netwerk.  
   Deze kunnen door een centrale component (bv. Home Assistant of een server gedefinieerd in BatSenseEmbedded) worden ingelezen en gelogd.
@@ -128,6 +128,6 @@ HTSensor.yaml
 
 text
 
-- `Docs/` bevat alle documentatie rond hardware, tests en opbouw.
-- `Scripts/` bevat de ESPHome-configuratie waarmee de sensoren gekoppeld en via Wi‑Fi doorgestuurd worden.
-- `firmware/` bevat dummy sensor logica.
+- **[Docs/](./Docs/)** bevat alle documentatie rond hardware, tests en opbouw.
+- **[Scripts/](./Scripts)** bevat de ESPHome-configuratie waarmee de sensoren gekoppeld en via Wi‑Fi doorgestuurd worden.
+- **[firmware/](./firmware/)** bevat dummy sensor logica.

@@ -3,7 +3,7 @@
 ## Overzicht
 In dit deel van het project hebben we de **sensorbekabeling** van de **SHT3X-sensoren** aangepast en gecontroleerd.  
 Tijdens de voorbereidende fase merkten we dat de bestaande kabels te lang waren om een betrouwbare I²C-communicatie te garanderen.  
-Het doel van deze aanpassing was om de communicatiekwaliteit tussen de **S2 Mini** en de **SHT3X-sensoren** te verbeteren door de kabellengte te beperken tot een optimale waarde.
+Het doel van deze aanpassing was om de communicatiekwaliteit tussen de **S2 Mini** en de **SHT3X-sensoren** te verbeteren door de kabellengte te beperken tot een optimale lengte.
 
 ## Achtergrond
 De **I²C-communicatiebus** (Inter-Integrated Circuit) is gevoelig voor signaalverzwakking en interferentie bij langere kabels.  
