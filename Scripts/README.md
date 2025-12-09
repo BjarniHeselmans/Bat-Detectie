@@ -17,7 +17,7 @@ De ESPHome-configuratie voor deze node zorgt ervoor dat de S2 Mini:
 
 De belangrijkste configuratie staat in:
 
-- `Scripts/HTSensor.yaml`
+- `Scripts/device(NMR).yaml`
 
 ---
 
