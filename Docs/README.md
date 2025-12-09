@@ -45,6 +45,14 @@ Hieronder volgt een overzicht van de bestanden en hun inhoud.
 
 ---
 
+### 1. [ErrorGuide.md](./ErrorGuide.md)
+**Onderwerp:** Guide to fix the commen error to be unable to flash.  
+**Inhoud:**  
+- een step by step guide om de error te kunnen oplossen
+- vervolgt met de mannier om de esp te flashen
+
+---
+
 ## Bijlagen
 
 - **Attachments/**  
