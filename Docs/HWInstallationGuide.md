@@ -22,7 +22,7 @@ After that is done the screwholder can be safely slotted in making sure that the
 
 Next the battery can be slotted into the enclosure making sure that the polarity is correct. This can be checked by aligning the + and minus sign as shown in the image below.
 
-<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step4.jpg" />
+<img width="2480" height="1642" alt="image" src="https://github.com/BjarniHeselmans/Bat-Detectie/blob/main/Docs/Attachments/Step4.png" />
 
 # Step 5
 
