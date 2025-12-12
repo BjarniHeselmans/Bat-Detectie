@@ -33,7 +33,7 @@ Dit project combineert de **S2 Mini** microcontroller met de **Adafruit PowerBoo
 - Ideaal voor draagbare IoT-projecten en omgevingsmonitoring.
 
 ## Aansluitingen
-
+<img width="2480" height="1642" alt="image" src="https://github.com/OliwierJaworski/Bat-Detectie/blob/main/Docs/Attachments/Volledige_Opstelling.png" />
 1. **Batterij → PowerBoost**
    - Verbind een LiPo/Li-ion batterij met de JST-connector van de PowerBoost.
 
@@ -70,5 +70,6 @@ Dit project combineert de **S2 Mini** microcontroller met de **Adafruit PowerBoo
 ## Referenties
 
 - [S2 Mini documentatie](https://www.wemos.cc/en/latest/s2/s2_mini.html)  
-- [Adafruit PowerBoost 500 Charger](https://learn.adafruit.com/adafruit-powerboost-500-charger)  
-- [SHT30 Datasheet (Sensirion)](https://sensirion.com/products/catalog/SHT30/)
+- [Adafruit PowerBoost 500 Charger](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-powerboost-500-plus-charger.pdf)  
+- [SHT30 Datasheet (Sensirion)](https://sensirion.com/media/documents/213E6A3B/63A5A569/Datasheet_SHT3x_DIS.pdf)
+- [SHT3x module functionality(controllerstech)](https://controllerstech.com/interface-sht3x-with-arduino/)

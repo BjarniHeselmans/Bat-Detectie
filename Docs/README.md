@@ -21,17 +21,17 @@ Hieronder volgt een overzicht van de bestanden en hun inhoud.
 - Testen van de boardjes via **Arduino IDE** en seriële monitor.  
 - Identificatie van werkende en defecte boardjes.  
 - Nummering en registratie voor verdere verwerking.  
-- Screenshot van de seriële monitoruitvoer: `./Attachments/serial_monitor_output.png`.
+- Screenshot van de seriële monitoruitvoer: **[./Attachments/serial_monitor_output.png](./Attachments/serial_monitor_output.png)**.
 
 ---
 
-### 3. [Sensor_kabels.md](./Sensor_kabels.md)
+### 3. [Sensor_kabels.md](./SensorKabels.md)
 **Onderwerp:** Verkorten en aansluiten van SHT3X-sensorbekabeling.  
 **Inhoud:**  
 - Controle op schade en waterschade.  
 - Verkorten van kabels tot 1 meter voor betrouwbare I²C-communicatie.  
 - Correcte aansluiting volgens datasheet.  
-- Foto van sensor met kabel: `./Attachments/SensorCable.png`.
+- Foto van sensor met kabel: **[./Attachments/SensorCable.png](./Attachments/SensorCable.png)**.
 
 ---
 
