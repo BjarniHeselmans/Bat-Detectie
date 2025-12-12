@@ -23,19 +23,6 @@ Het doel van dit deelproject is een werkende, reproduceerbare sensor node op te 
 - voldoende gedocumenteerd is (hardware + firmware) zodat een andere student de node opnieuw kan bouwen en integreren in het BatSense-systeem.
 - De node moet aantoonbaar meetdata leveren die in het centrale systeem zichtbaar en logbaar is.
 
-Binnen het systeem fungeert Home Assistant als centraal punt voor:
-
-- een realtime overzichtsdashboard met de actuele status van alle devices, inclusief duidelijke indicatie van online en offline nodes;
-- automatische en continue datalogging van temperatuur- en luchtvochtigheidsdata per module;
-- grafische visualisatie met minstens 30 minuten historiek per module en één gezamenlijke temperatuur-/humidity-grafiek voor alle modules;
-- beheer en visualisatie van minstens 20 autonome sensormodules;
-- persistente opslag van alle meetdata, ook na herstart van Home Assistant;
-- correcte herinitialisatie na herstart waarbij alle nodes en data opnieuw zichtbaar zijn;
-- visualisatie van MLX90640-thermische data als 32×24 warmtebeeld met logging van minimum-, maximum- en gemiddelde temperatuur;
-- export van node-lijsten en meetdata naar CSV/Excel;
-- ondersteuning voor het nemen van dashboardscreenshots;
-- mogelijkheid tot het maken en opslaan van configuratie-back-ups.
-
 ---
 
 ## 3. Materialen & Methoden — Hoe is het gebouwd?
@@ -53,25 +40,12 @@ De sensor node bestaat uit:
 - **Overige:**  
   Bekabeling, connectoren en een behuizing/opstelling geschikt voor plaatsing in een spouwmuur.
 
-De bekabeling, pinout en fysieke opstelling worden beschreven in de documenten in **[Docs/](./Docs/)**:
 - **[Research.md](./Docs/Research.md)** – hardwareopzet en keuzes
 - **[board_controle.md](./Docs/Board_controle.md)** – basiscontroles van de S2 Mini
 - **[sensor_kabels.md](./Docs/SensorKabels.md)** – sensorbekabeling en aanpassingen
 - **[s2mini_flashen.md](./Docs/S2mini_flashen.md)** – stappen om de S2 Mini te flashen met ESPHome
 
-De Home Assistant-opstelling bestaat uit:
-
-- **Softwareplatform (Home Assistant):**  
-  Home Assistant OS als centraal automatisatie- en dataplatform.
-- **Microcontroller / Host-systeem:**  
-  Raspberry Pi 4 (2 GB) met **microSD-kaart (klasse 1)**.
-- **Netwerk / Access point:**  
-  TP-Link TL-MR6400 draadloze N 4G-LTE-router voor internet- en netwerkconnectiviteit.
-- **Bekabeling:**  
-  Voedingskabels en ethernetkabel voor stroomvoorziening en netwerkverbinding.
-
-De communicatieprotocollen en fysieke opstelling worden beschreven in de documenten in **[Docs/](./Docs/)**.
-
+De bekabeling, pinout en fysieke opstelling worden beschreven in de documenten in **[Docs/](./Docs/)**:
 
 ### 3.2 Firmware & Software (ESPHome & Home Assistant)
 
@@ -123,16 +97,6 @@ De volgende resultaten werden bereikt met deze sensor node:
   De data kan worden ingelezen en gelogd door een hoger niveau platform (bijvoorbeeld Home Assistant of een centrale server binnen BatSenseEmbedded).
 
 Het aantal werkende modules, testduur en stabiliteitstesten hangen af van de concrete metingen en opstellingen die in de loop van het project zijn uitgevoerd. Deze kunnen aangevuld worden met grafieken, logs en screenshots in de documentatie en in de centrale projectrapportage.
-
-/----> future work: home assistant toont aan:
-- aantal werkende modules
-- screenshots home assistant
-- temp/ hum grafieken
-- camerabeelden met timestamps
-// --> moet ook:
-- wat is er effectief getest uitleg + resultaten
-- werkt het stabiel leg uit?
-- wat werkt wanneer waarom werkt iets niet? leg uit.
 
 ---
 
