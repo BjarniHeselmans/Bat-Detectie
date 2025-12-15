@@ -75,14 +75,9 @@ esphome log device1.yaml
 
 ---
 
-# Optioneel: protobuf handmatig installeren
-
-Alleen nodig als je ESPHome buiten een virtuele omgeving installeert (niet aanbevolen):
-
-```bash
-pip install "protobuf<5,>=4.25.3"
-pip install esphome
-```
+# Verrificatie dat de sensor is geupload:
+<img width="1025" height="683" alt="image" src="https://github.com/user-attachments/assets/967ced35-c57a-4679-ace3-532e041e8309" />
+<img width="982" height="671" alt="image" src="https://github.com/user-attachments/assets/85cf47c3-bac5-41bf-bf7d-52182e4dbd2e" />
 
 ---
 
